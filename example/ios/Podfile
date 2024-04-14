@@ -39,6 +39,18 @@ end
 
 post_install do |installer|
   installer.pods_project.targets.each do |target|
+    if target.name == 'certification'
+      target.build_configurations.each do |config|
+        #build target default any Ios Device(arm64)
+        config.build_settings['ARCHS'] = 'arm64'
+        config.build_settings['VALID_ARCHS'] = 'arm64'
+        #코드사이닝 없이 빌드
+        config.build_settings['CODE_SIGNING_REQUIRED'] = 'NO'
+        config.build_settings['CODE_SIGNING_ALLOWED'] = 'NO'
+        config.build_settings['SWIFT_OBJC_BRIDGING_HEADER'] = '${PODS_TARGET_SRCROOT}/Classes/certification-Bridging-Header.h'
+        config.build_settings['HEADER_SEARCH_PATHS'] = 'Target\ Support\ Files/certification/Headers/**'
+      end
+    end
     flutter_additional_ios_build_settings(target)
   end
 end
