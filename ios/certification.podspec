@@ -15,11 +15,13 @@ A new Flutter plugin project.
   s.source           = { :path => '.' }
   s.source_files = 'Classes/**/*.{swift,h,m}'
   s.framework = 'Security'
-  # s.preserve_paths = '../example/ios/Pods/Target Support Files/certification/certification-Bridging-Header.h'
+  s.vendored_frameworks = 'libsqlite3.tbd'
   s.vendored_libraries = 'Assets/**/*'
-  s.exclude_files = 'Classes/certification-Bridging-Header.h'
+  s.exclude_files = 'Classes/certification-Bridging-Header.h', 'Classes/KeySharpAdaptor.h'
   s.dependency 'Flutter'
   s.platform = :ios, '11.0'
+  # s.preserve_paths = '../example/ios/Pods/Target Support Files/certification/certification-Bridging-Header.h'
+  # s.public_header_files = '../example/ios/Pods/Target Support Files/certification/certification-umbrella.h'
   
   s.pod_target_xcconfig = { 'DEFINES_MODULE' => 'YES', 'EXCLUDED_ARCHS[sdk=iphonesimulator*]' => 'arm64' }
   s.swift_version = '5.0'
