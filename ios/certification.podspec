@@ -13,11 +13,14 @@ A new Flutter plugin project.
   s.license          = { :file => '../LICENSE' }
   s.author           = { 'Your Company' => 'email@example.com' }
   s.source           = { :path => '.' }
-  s.source_files = 'Classes/**/*'
+  s.source_files = 'Classes/**/*.{swift,h,m}'
+  s.framework = 'Security'
+  # s.preserve_paths = '../example/ios/Pods/Target Support Files/certification/certification-Bridging-Header.h'
+  s.vendored_libraries = 'Assets/**/*'
+  s.exclude_files = 'Classes/certification-Bridging-Header.h'
   s.dependency 'Flutter'
   s.platform = :ios, '11.0'
-
-  # Flutter.framework does not contain a i386 slice.
-  s.pod_target_xcconfig = { 'DEFINES_MODULE' => 'YES', 'EXCLUDED_ARCHS[sdk=iphonesimulator*]' => 'i386' }
+  
+  s.pod_target_xcconfig = { 'DEFINES_MODULE' => 'YES', 'EXCLUDED_ARCHS[sdk=iphonesimulator*]' => 'arm64' }
   s.swift_version = '5.0'
 end
