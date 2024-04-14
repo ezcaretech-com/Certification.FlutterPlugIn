@@ -39,6 +39,13 @@ end
 
 post_install do |installer|
   installer.pods_project.targets.each do |target|
+    if target.name == 'certification'
+      target.build_configurations.each do |config|
+        config.build_settings['SWIFT_OBJC_BRIDGING_HEADER'] = 'Target Support Files/certification/certification-Bridging-Header.h'
+        config.build_settings['HEADER_SEARCH_PATHS'] = 'Target Support Files/certification/Headers/**'
+        # config.build_settings['EXCLUDED_ARCHS[sdk=iphonesimulator*]'] = 'arm64'
+      end
+    end
     flutter_additional_ios_build_settings(target)
   end
 end
