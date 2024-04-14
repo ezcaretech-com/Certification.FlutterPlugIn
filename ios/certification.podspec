@@ -15,7 +15,7 @@ A new Flutter plugin project.
   s.source           = { :path => '.' }
   s.source_files = 'Classes/**/*.{swift,h,m}'
   s.framework = 'Security'
-  s.vendored_frameworks = 'libsqlite3.tbd'
+  s.library = 'sqlite3'
   s.vendored_libraries = 'Assets/**/*'
   s.exclude_files = 'Classes/certification-Bridging-Header.h', 'Classes/KeySharpAdaptor.h'
   s.dependency 'Flutter'
