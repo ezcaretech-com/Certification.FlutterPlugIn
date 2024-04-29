@@ -13,18 +13,15 @@ A new Flutter plugin project.
   s.license          = { :file => '../LICENSE' }
   s.author           = { 'Your Company' => 'email@example.com' }
   s.source           = { :path => '.' }
+  # *.ct 파일 제외를 위해 확장자를 제한함.
   s.source_files = 'Classes/**/*.{swift,h,m}'
+  s.public_header_files = 'Classes/**/*.h'
+  s.vendored_libraries = 'Assets/**/*'
   s.framework = 'Security'
   s.library = 'sqlite3'
-  s.vendored_libraries = 'Assets/**/*'
-  s.exclude_files = 'Classes/certification-Bridging-Header.h'
-  # , 'Classes/KeySharpAdaptor.h'
-  s.private_header_files = 'Classes/KeySharpAdaptor.h'
   s.dependency 'Flutter'
   s.platform = :ios, '11.0'
-  # s.preserve_paths = '../example/ios/Pods/Target Support Files/certification/certification-Bridging-Header.h'
-  # s.public_header_files = '../example/ios/Pods/Target Support Files/certification/certification-umbrella.h'
   
-  s.pod_target_xcconfig = { 'DEFINES_MODULE' => 'YES', 'EXCLUDED_ARCHS[sdk=iphonesimulator*]' => 'arm64' }
+  s.pod_target_xcconfig = { 'DEFINES_MODULE' => 'YES', 'EXCLUDED_ARCHS[sdk=iphonesimulator*]' => 'i386 arm64' }
   s.swift_version = '5.0'
 end
