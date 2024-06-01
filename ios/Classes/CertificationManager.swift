@@ -32,8 +32,15 @@ class CertificationManager {
         guard let keySharp = CertificationManager._keySharp else {
             throw NSError(domain: "CertificationManager", code: -1, userInfo: [NSLocalizedDescriptionKey: "KeySharpAdaptor is not initialized"])
         }
-        let checkPwd = keySharp.checkPassword(with: Int32(idx), password: userPw)
-        return checkPwd != -1 ? true : false
+        
+        var error: NSError?
+        let checkPwd = keySharp.checkPassword(with: Int32(idx), password: userPw, error: &error)
+        
+        if let error = error {
+            throw error
+        }
+        
+        return checkPwd != -1
     }
 
     public static func sign(with password: String, message: String, completion: @escaping (String?) -> Void) throws -> Void {

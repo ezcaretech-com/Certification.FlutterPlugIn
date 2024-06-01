@@ -26,7 +26,7 @@
 + (id)shared;
 - (id)init;
 - (BOOL)downloadWith:(NSString *)userId error:(NSError **)error;
-- (int)checkPasswordWith:(int)idx password:(NSString *)userPw;
+- (int)checkPasswordWith:(int)idx password:(NSString *)userPw error:(NSError **)error;
 /// 인증서 암호화 및 검증(AS-IS)
 - (NSString *)signAndVerifyWith:(NSString *)password message:(NSString *)message error:(NSError **)error;
 /// 인증서 암호화 및 검증(TO-BE)
